@@ -1,0 +1,115 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a API Documentation for Redikru Job Posting.",
+        "title": "Swagger API Documentation - Redikru Job Posting",
+        "contact": {}
+    },
+    "paths": {
+        "/companies": {
+            "get": {
+                "description": "Show Company",
+                "tags": [
+                    "Companies"
+                ],
+                "summary": "Show Company",
+                "responses": {}
+            },
+            "post": {
+                "description": "Insert Company",
+                "tags": [
+                    "Companies"
+                ],
+                "summary": "Insert Company",
+                "parameters": [
+                    {
+                        "description": "example",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Company"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/jobs": {
+            "get": {
+                "description": "Search job, can add query parameter",
+                "tags": [
+                    "Jobs"
+                ],
+                "summary": "Search job, can add query parameter",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "keyword search",
+                        "name": "keyword",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "companyName search",
+                        "name": "companyName",
+                        "in": "query"
+                    }
+                ],
+                "responses": {}
+            },
+            "post": {
+                "description": "Insert job posting",
+                "tags": [
+                    "Jobs"
+                ],
+                "summary": "Insert Job",
+                "parameters": [
+                    {
+                        "description": "example",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Job"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    },
+    "definitions": {
+        "models.Company": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Job": {
+            "type": "object",
+            "properties": {
+                "company_id": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

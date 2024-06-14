@@ -1,0 +1,76 @@
+definitions:
+  models.Company:
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+    type: object
+  models.Job:
+    properties:
+      company_id:
+        type: string
+      created_at:
+        type: string
+      description:
+        type: string
+      id:
+        type: string
+      title:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: This is a API Documentation for Redikru Job Posting.
+  title: Swagger API Documentation - Redikru Job Posting
+paths:
+  /companies:
+    get:
+      description: Show Company
+      responses: {}
+      summary: Show Company
+      tags:
+      - Companies
+    post:
+      description: Insert Company
+      parameters:
+      - description: example
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/models.Company'
+      responses: {}
+      summary: Insert Company
+      tags:
+      - Companies
+  /jobs:
+    get:
+      description: Search job, can add query parameter
+      parameters:
+      - description: keyword search
+        in: query
+        name: keyword
+        type: string
+      - description: companyName search
+        in: query
+        name: companyName
+        type: string
+      responses: {}
+      summary: Search job, can add query parameter
+      tags:
+      - Jobs
+    post:
+      description: Insert job posting
+      parameters:
+      - description: example
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/models.Job'
+      responses: {}
+      summary: Insert Job
+      tags:
+      - Jobs
+swagger: "2.0"

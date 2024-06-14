@@ -20,6 +20,12 @@ func NewCompanyHandler(serv services.CompanyService) CompanyHandler {
 	return &companyHandler{serv: serv}
 }
 
+// Insert Company godoc
+// @Summary Insert Company
+// @Description Insert Company
+// @Param request body models.Company true "example"
+// @Tags Companies
+// @Router /companies [post]
 func (h companyHandler) Insert(w http.ResponseWriter, r *http.Request) error {
 	company := &models.Company{}
 	err := pkg.GetJsonBody(r, company)
@@ -36,6 +42,11 @@ func (h companyHandler) Insert(w http.ResponseWriter, r *http.Request) error {
 	return nil
 }
 
+// Show Company godoc
+// @Summary Show Company
+// @Description Show Company
+// @Tags Companies
+// @Router /companies [get]
 func (h companyHandler) SelectAll(w http.ResponseWriter, r *http.Request) error {
 	companies, err := h.serv.SelectAll()
 	if err != nil {
