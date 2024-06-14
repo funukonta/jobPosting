@@ -10,3 +10,6 @@ $ git clone https://github.com/funukonta/jobPosting
 $ cd jobPosting/
 $ docker compose up -d
 ```
+
+## Documentation API
+after running `docker compose`, you can access "http://localhost:8000/swagger"
